@@ -219,7 +219,9 @@ BODY:
 type_name
 
 על מנת למחוק את כולם יש להוסיף:
+<br>
 destroy_discounts": {"type_name": "all"}
+<br>
 destroy_discounts": {"type_name": "como"}
 ````
 {
@@ -236,6 +238,25 @@ destroy_discounts": {"type_name": "como"}
             "coupon_code": "12345",
             "type_name": "itam"
         }]
+    }
+}
+````
+
+על מנת למחוק הנחה ספציפית יש להוסיף:
+<br>
+destroy_discounts": {"line_item_discount_ids": "*line_item_discount_id*"}
+<br>
+כאשר ה-line_item_discount_id הוא ערך דינמי של מזהה ההנחה בעגלה
+<br>
+*אם רוצים למחוק כמה הנחות, אפשר לשרשר אותן עם פסיקים, כמו בדוגמא הבאה:
+````
+{
+    "token": "xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx",
+    "cart": {
+    	"destroy_discounts": {
+            "line_item_discount_ids": "123456,234567"
+        },
+        "discounts": []
     }
 }
 ````
